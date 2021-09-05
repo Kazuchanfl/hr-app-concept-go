@@ -1,5 +1,5 @@
 package controller
 
-type MissionController interface {
+type MissionRequestHandler interface {
 	GetAllMissions()
 }
