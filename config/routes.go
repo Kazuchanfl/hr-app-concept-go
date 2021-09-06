@@ -16,6 +16,7 @@ func InitRoutes() *gin.Engine {
 		})
 	})
 	r.GET("/missions", missionController.GetAllMissions)
+	r.GET("/missions/:id", missionController.GetAMission)
 
 	return r
 }
