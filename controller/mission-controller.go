@@ -11,6 +11,6 @@ type MissionController struct {
 
 func (controller *MissionController) GetAllMissions(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"message": "GetAllMission is called!",
+		"message": "GetAllMission has been called!",
 	})
 }
