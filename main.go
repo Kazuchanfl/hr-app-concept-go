@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-	r := config.InitRoutes()
+	config.InitDb()
 
+	r := config.InitRoutes()
 	r.Run()
 }
