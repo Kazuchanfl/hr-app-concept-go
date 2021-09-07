@@ -4,5 +4,5 @@ import "gorm.io/gorm"
 
 type Mission struct {
 	gorm.Model
-	statement string
+	Statement string
 }
