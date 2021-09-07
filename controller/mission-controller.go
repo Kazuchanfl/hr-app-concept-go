@@ -12,13 +12,13 @@ type MissionController struct {
 
 func (controller *MissionController) GetAllMissions(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"message": "GetAllMissions has been called!",
+		"message": "DEBUG: GetAllMissions has been called!",
 	})
 }
 
 func (controller *MissionController) GetAMission(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"message": "GetAMission has been called!",
+		"message": "DEBUG: GetAMission has been called!",
 		"id":      c.Param("id"),
 	})
 }
