@@ -16,4 +16,5 @@ func InitDb() {
 
 	// Migrate the schema
 	db.AutoMigrate(&model.Mission{})
+	db.AutoMigrate(&model.Goal{})
 }
