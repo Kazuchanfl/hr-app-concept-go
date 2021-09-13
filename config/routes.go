@@ -8,15 +8,18 @@ import (
 func InitRoutes() *gin.Engine {
 	r := gin.Default()
 
-	missionController := controller.MissionController{}
-
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
 	})
+
+	missionController := controller.MissionController{}
 	r.GET("/missions", missionController.GetAllMissions)
 	r.GET("/missions/:id", missionController.GetAMission)
+
+	goalController := controller.GoalController{}
+	r.GET("/goals", goalController.GetAllGoals)
 
 	return r
 }
