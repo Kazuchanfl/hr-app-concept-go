@@ -20,6 +20,7 @@ func InitRoutes() *gin.Engine {
 
 	goalController := controller.GoalController{}
 	r.GET("/goals", goalController.GetAllGoals)
+	r.GET("/goals/:id", goalController.GetAGoal)
 
 	return r
 }
