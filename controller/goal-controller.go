@@ -24,3 +24,15 @@ func (controller *GoalController) GetAllGoals(c *gin.Context) {
 		"goals":   goals,
 	})
 }
+
+func (controller *GoalController) GetAGoal(c *gin.Context) {
+	// TODO get a Goal from DB
+	goal := []model.Goal{
+		{Title: "頑張る", Description: "めっちゃ頑張る"},
+	}
+	c.JSON(200, gin.H{
+		"message": "DEBUG: GetAMission has been called!",
+		"id":      c.Param("id"),
+		"goal":    goal,
+	})
+}
