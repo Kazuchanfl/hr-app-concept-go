@@ -37,3 +37,10 @@ func (controller *GoalController) GetAGoal(c *gin.Context) {
 		"goal":    goal,
 	})
 }
+
+func (controller *GoalController) CreateAGoal(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "DEBUG: CreateAGoal has been called!",
+		//"goal":    goal,
+	})
+}
