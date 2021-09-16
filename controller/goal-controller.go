@@ -39,8 +39,18 @@ func (controller *GoalController) GetAGoal(c *gin.Context) {
 }
 
 func (controller *GoalController) CreateAGoal(c *gin.Context) {
+	// TODO takahashikazuaki Follows are example codes so they could be deleted.
+	message := c.PostForm("message")
+	nick := c.DefaultPostForm("nick", "anonymous")
+
 	c.JSON(200, gin.H{
-		"message": "DEBUG: CreateAGoal has been called!",
-		//"goal":    goal,
+		"status":  "posted",
+		"message": message,
+		"nick":    nick,
 	})
+
+	//c.JSON(200, gin.H{
+	//	"message": "DEBUG: CreateAGoal has been called!",
+	//	//"goal":    goal,
+	//})
 }
