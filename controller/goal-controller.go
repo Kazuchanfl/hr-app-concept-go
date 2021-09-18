@@ -39,7 +39,7 @@ func (controller *GoalController) GetAGoal(c *gin.Context) {
 }
 
 func (controller *GoalController) CreateAGoal(c *gin.Context) {
-	// TODO takahashikazuaki Follows are example codes so they could be deleted.
+	// TODO takahashikazuaki Followings are example codes so they could be deleted.
 	message := c.PostForm("message")
 	nick := c.DefaultPostForm("nick", "anonymous")
 
