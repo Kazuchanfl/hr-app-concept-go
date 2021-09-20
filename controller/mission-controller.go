@@ -10,7 +10,7 @@ type MissionController struct {
 }
 
 func (controller *MissionController) GetAllMissions(c *gin.Context) {
-	missions := controller.Repository.GetAllMissions()
+	missions, _ := controller.Repository.GetAllMissions()
 	c.JSON(200, gin.H{
 		"message":  "DEBUG: GetAllMissions has been called!",
 		"missions": missions,
