@@ -8,8 +8,8 @@ import (
 func main() {
 	db := config.InitDb()
 
-	missionRepository := repository.MissionRepository{DB: db}
+	missionRepository := &repository.MissionRepository{DB: db}
 
-	r := config.InitRoutes()
+	r := config.InitRoutes(missionRepository)
 	r.Run()
 }
