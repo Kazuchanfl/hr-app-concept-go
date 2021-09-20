@@ -5,11 +5,6 @@ import (
 	"hr-app-go/model"
 )
 
-type GoalRequestHandler interface {
-	GetAllGoals(*gin.Context)
-	GetAGoal(*gin.Context)
-}
-
 type GoalController struct {
 }
 

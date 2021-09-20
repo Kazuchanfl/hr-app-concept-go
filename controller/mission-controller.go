@@ -5,11 +5,6 @@ import (
 	"hr-app-go/model"
 )
 
-type MissionRequestHandler interface {
-	GetAllMissions(*gin.Context)
-	GetAMission(*gin.Context)
-}
-
 type MissionController struct {
 }
 
