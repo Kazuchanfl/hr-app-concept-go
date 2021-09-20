@@ -14,7 +14,7 @@ func InitRoutes(repos Repositories) *gin.Engine {
 		})
 	})
 
-	missionController := controller.MissionController{Repository: repos.MissionR}
+	missionController := controller.MissionController{Repo: repos.MissionR}
 	r.GET("/missions", missionController.GetAllMissions)
 	r.GET("/missions/:id", missionController.GetAMission)
 

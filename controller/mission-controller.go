@@ -6,11 +6,11 @@ import (
 )
 
 type MissionController struct {
-	Repository *repository.MissionRepository
+	Repo *repository.MissionRepository
 }
 
 func (controller *MissionController) GetAllMissions(c *gin.Context) {
-	missions, _ := controller.Repository.GetAllMissions()
+	missions, _ := controller.Repo.GetAllMissions()
 	c.JSON(200, gin.H{
 		"message":  "DEBUG: GetAllMissions has been called!",
 		"missions": missions,
