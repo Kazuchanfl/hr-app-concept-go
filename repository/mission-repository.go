@@ -6,7 +6,7 @@ import (
 )
 
 type MissionRepository struct {
-	db *gorm.DB
+	DB *gorm.DB
 }
 
 func (r *MissionRepository) GetAllMissions() []model.Mission {
