@@ -5,7 +5,7 @@ import (
 	"hr-app-go/controller"
 )
 
-func InitRoutes(repositories Repositories) *gin.Engine {
+func InitRoutes(repos Repositories) *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
@@ -14,7 +14,7 @@ func InitRoutes(repositories Repositories) *gin.Engine {
 		})
 	})
 
-	missionController := controller.MissionController{Repository: repositories.MissionR}
+	missionController := controller.MissionController{Repository: repos.MissionR}
 	r.GET("/missions", missionController.GetAllMissions)
 	r.GET("/missions/:id", missionController.GetAMission)
 
