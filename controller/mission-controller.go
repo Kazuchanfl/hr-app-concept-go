@@ -3,9 +3,11 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"hr-app-go/model"
+	"hr-app-go/repository"
 )
 
 type MissionController struct {
+	Repository *repository.MissionRepository
 }
 
 func (controller *MissionController) GetAllMissions(c *gin.Context) {
