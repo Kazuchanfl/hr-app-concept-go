@@ -9,15 +9,15 @@ type MissionController struct {
 	Repo *repository.MissionRepository
 }
 
-func (controller *MissionController) GetAllMissions(c *gin.Context) {
-	missions, _ := controller.Repo.GetAllMissions()
+func (co *MissionController) GetAllMissions(c *gin.Context) {
+	missions, _ := co.Repo.GetAllMissions()
 	c.JSON(200, gin.H{
 		"message":  "DEBUG: GetAllMissions has been called!",
 		"missions": missions,
 	})
 }
 
-func (controller *MissionController) GetAMission(c *gin.Context) {
+func (co *MissionController) GetAMission(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAMission has been called!",
 		"id":      c.Param("id"),
