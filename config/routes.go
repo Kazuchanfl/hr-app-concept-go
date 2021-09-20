@@ -3,9 +3,10 @@ package config
 import (
 	"github.com/gin-gonic/gin"
 	"hr-app-go/controller"
+	"hr-app-go/repository"
 )
 
-func InitRoutes() *gin.Engine {
+func InitRoutes(missionRepository *repository.MissionRepository) *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
@@ -14,7 +15,7 @@ func InitRoutes() *gin.Engine {
 		})
 	})
 
-	missionController := controller.MissionController{}
+	missionController := controller.MissionController{Repository: missionRepository}
 	r.GET("/missions", missionController.GetAllMissions)
 	r.GET("/missions/:id", missionController.GetAMission)
 
