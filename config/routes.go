@@ -14,14 +14,14 @@ func InitRoutes(repos Repositories) *gin.Engine {
 		})
 	})
 
-	missionController := controller.MissionController{R: repos.MissionR}
-	r.GET("/missions", missionController.GetAllMissions)
-	r.GET("/missions/:id", missionController.GetAMission)
+	mc := controller.MissionController{R: repos.MissionR}
+	r.GET("/missions", mc.GetAllMissions)
+	r.GET("/missions/:id", mc.GetAMission)
 
-	goalController := controller.GoalController{}
-	r.GET("/goals", goalController.GetAllGoals)
-	r.GET("/goals/:id", goalController.GetAGoal)
-	r.POST("/goals", goalController.CreateAGoal)
+	gc := controller.GoalController{}
+	r.GET("/goals", gc.GetAllGoals)
+	r.GET("/goals/:id", gc.GetAGoal)
+	r.POST("/goals", gc.CreateAGoal)
 
 	return r
 }
