@@ -18,8 +18,9 @@ func (co *MissionController) GetAllMissions(c *gin.Context) {
 }
 
 func (co *MissionController) GetAMission(c *gin.Context) {
+	mission := co.R.GetAMission(c.Param("id"))
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAMission has been called!",
-		"id":      c.Param("id"),
+		"mission": mission,
 	})
 }
