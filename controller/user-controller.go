@@ -18,6 +18,7 @@ func (co *UserController) GetAUser(c *gin.Context) {
 	}
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAUser has been called!",
+		"id":      c.Param("id"),
 		"user":    user,
 	})
 }
