@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"hr-app-go/model"
 	"hr-app-go/repository"
 )
 
@@ -20,6 +21,16 @@ func (co *UserController) GetAUser(c *gin.Context) {
 	}
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAUser has been called!",
+		"user":    user,
+	})
+}
+
+func (co *UserController) UpdateAUser(c *gin.Context) {
+	// TODO takahashikazuaki call repository
+	//user, err := co.R.UpdateAUser(c.Param("id"))
+	user := model.User{Name: "Kazuaki Takahashi", Profile: "Graduate Student of Waseda University"}
+	c.JSON(200, gin.H{
+		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    user,
 	})
 }
