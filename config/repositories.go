@@ -7,10 +7,12 @@ import (
 
 type Repositories struct {
 	MissionR *repository.MissionRepository
+	UserR    *repository.UserRepository
 }
 
 func InitRepositories(db *gorm.DB) Repositories {
 	missionR := &repository.MissionRepository{DB: db}
+	userR := &repository.UserRepository{DB: db}
 
-	return Repositories{MissionR: missionR}
+	return Repositories{MissionR: missionR, UserR: userR}
 }
