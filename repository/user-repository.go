@@ -10,10 +10,10 @@ type UserRepository struct {
 	DB *gorm.DB
 }
 
-func (r *UserRepository) GetAUser(id string) model.User {
+func (r *UserRepository) GetAUser(id string) (model.User, error) {
 	var user model.User
 	if err := r.DB.First(&user, id).Error; err != nil {
 		errors.Is(err, gorm.ErrRecordNotFound)
 	}
-	return user
+	return user, nil
 }
