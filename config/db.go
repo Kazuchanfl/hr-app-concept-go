@@ -13,6 +13,7 @@ func InitDb() *gorm.DB {
 	}
 
 	// Migrate the schema
+	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Mission{})
 	db.AutoMigrate(&model.Value{})
 	db.AutoMigrate(&model.Goal{})
