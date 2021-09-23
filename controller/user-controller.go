@@ -2,23 +2,24 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"hr-app-go/model"
+	"hr-app-go/repository"
 )
 
 type UserController struct {
-	// TODO takahashikazuaki use UserRepository in UserController
-	//R *repository.UserRepository
+	R *repository.UserRepository
 }
 
 func (co *UserController) GetAUser(c *gin.Context) {
-	// TODO takahashikazuaki get a user from DB
-	user := model.User{
-		Name:    "Kazuaki Takahashi",
-		Profile: "Software Developer at teamLab Inc.",
+	user, err := co.R.GetAUser(c.Param("id"))
+	if err != nil {
+		c.JSON(200, gin.H{
+			"message": "DEBUG: GetAUser has been called, but something went wrong.",
+			"user":    nil,
+			"error":   err,
+		})
 	}
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAUser has been called!",
-		"id":      c.Param("id"),
 		"user":    user,
 	})
 }
