@@ -19,6 +19,7 @@ func (r *UserRepository) GetAUser(id string) (model.User, error) {
 }
 
 func (r *UserRepository) UpdateAUser(user model.User) (model.User, error) {
-	// TODO takahashikazuaki Not yet implemented
-	return model.User{}, nil
+	// TODO takahashikazuaki handle DB error
+	r.DB.Updates(user)
+	return user, nil
 }
