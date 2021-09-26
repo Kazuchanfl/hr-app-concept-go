@@ -30,7 +30,6 @@ func (co *UserController) UpdateAUser(c *gin.Context) {
 	user.Name = c.PostForm("name")
 	user.Profile = c.PostForm("profile")
 	updatedUser, _ := co.R.UpdateAUser(user)
-	//user := model.User{Name: "Kazuaki Takahashi", Profile: "Graduate Student of Waseda University"}
 	c.JSON(200, gin.H{
 		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    updatedUser,
