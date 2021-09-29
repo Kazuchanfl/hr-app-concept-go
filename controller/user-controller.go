@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"hr-app-go/model"
 	"hr-app-go/repository"
 )
 
@@ -33,5 +34,16 @@ func (co *UserController) UpdateAUser(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    updatedUser,
+	})
+}
+
+func (co *UserController) GetUserGoals(c *gin.Context) {
+	// TODO takahashikazuaki not yet implemented
+	var user model.User
+	var goals []model.Goal
+	c.JSON(200, gin.H{
+		"message": "DEBUG: UpdateAUser has been called!",
+		"user":    user,
+		"goals":   goals,
 	})
 }
