@@ -6,4 +6,5 @@ type Goal struct {
 	gorm.Model
 	Title       string
 	Description string
+	UserID      uint
 }
