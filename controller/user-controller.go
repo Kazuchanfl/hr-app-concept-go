@@ -39,8 +39,13 @@ func (co *UserController) UpdateAUser(c *gin.Context) {
 
 func (co *UserController) GetUserGoals(c *gin.Context) {
 	// TODO takahashikazuaki not yet implemented
-	var user model.User
-	var goals []model.Goal
+	user := model.User{Name: "Kazuaki Takahashi"}
+	goals := []model.Goal{
+		{
+			Title: "メンバーと毎週定例を実施する",
+			Description: "その日やっていたこと・今後やっていこうとしていること・課題などを共有し、解決に向けて前進させる。"
+		},
+	}
 	c.JSON(200, gin.H{
 		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    user,
