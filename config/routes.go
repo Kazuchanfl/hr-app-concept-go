@@ -18,6 +18,9 @@ func InitRoutes(repos Repositories) *gin.Engine {
 	r.GET("/missions", mc.GetAllMissions)
 	r.GET("/missions/:id", mc.GetAMission)
 
+	vc := controller.ValueController{}
+	r.GET("/values", vc.GetAllValues)
+
 	gc := controller.GoalController{}
 	r.GET("/goals", gc.GetAllGoals)
 	r.GET("/goals/:id", gc.GetAGoal)
