@@ -42,8 +42,8 @@ func (co *UserController) GetUserGoals(c *gin.Context) {
 	user := model.User{Name: "Kazuaki Takahashi"}
 	goals := []model.Goal{
 		{
-			Title: "メンバーと毎週定例を実施する",
-			Description: "その日やっていたこと・今後やっていこうとしていること・課題などを共有し、解決に向けて前進させる。"
+			Title:       "メンバーと毎週定例を実施する",
+			Description: "その日やっていたこと・今後やっていこうとしていること・課題などを共有し、解決に向けて前進させる。",
 		},
 	}
 	c.JSON(200, gin.H{
