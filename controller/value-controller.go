@@ -1,8 +1,12 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"hr-app-go/repository"
+)
 
 type ValueController struct {
+	R *repository.ValueRepository
 }
 
 func (co *ValueController) GetAllValues(c *gin.Context) {
