@@ -10,8 +10,9 @@ type ValueController struct {
 }
 
 func (co *ValueController) GetAllValues(c *gin.Context) {
-	// TODO takahashikazuaki not yet implemetned
+	values, _ := co.R.GetAllValues()
 	c.JSON(200, gin.H{
 		"message": "DEBUG: GetAllValues has been called!",
+		"values":  values,
 	})
 }
