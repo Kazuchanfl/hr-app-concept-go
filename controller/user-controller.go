@@ -8,6 +8,7 @@ import (
 
 type UserController struct {
 	UR *repository.UserRepository
+	GR *repository.GoalRepository
 }
 
 func (co *UserController) GetAUser(c *gin.Context) {

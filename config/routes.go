@@ -26,7 +26,7 @@ func InitRoutes(repos Repositories) *gin.Engine {
 	r.GET("/goals/:id", gc.GetAGoal)
 	r.POST("/goals", gc.CreateAGoal)
 
-	uc := controller.UserController{UR: repos.UserR}
+	uc := controller.UserController{UR: repos.UserR, GR: repos.GoalR}
 	r.GET("/users/:id", uc.GetAUser)
 	r.PUT("/users/:id", uc.UpdateAUser)
 	r.GET("/users/:id/goals", uc.GetUserGoals)
