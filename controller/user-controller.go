@@ -7,11 +7,11 @@ import (
 )
 
 type UserController struct {
-	R *repository.UserRepository
+	UR *repository.UserRepository
 }
 
 func (co *UserController) GetAUser(c *gin.Context) {
-	user, err := co.R.GetAUser(c.Param("id"))
+	user, err := co.UR.GetAUser(c.Param("id"))
 	if err != nil {
 		c.JSON(200, gin.H{
 			"message": "DEBUG: GetAUser has been called, but something went wrong.",
@@ -27,10 +27,10 @@ func (co *UserController) GetAUser(c *gin.Context) {
 
 func (co *UserController) UpdateAUser(c *gin.Context) {
 	// TODO takahashikazuaki handle error for failing GetAUser
-	user, _ := co.R.GetAUser(c.Param("id"))
+	user, _ := co.UR.GetAUser(c.Param("id"))
 	user.Name = c.PostForm("name")
 	user.Profile = c.PostForm("profile")
-	updatedUser, _ := co.R.UpdateAUser(user)
+	updatedUser, _ := co.UR.UpdateAUser(user)
 	c.JSON(200, gin.H{
 		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    updatedUser,
