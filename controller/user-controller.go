@@ -2,7 +2,6 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"hr-app-go/model"
 	"hr-app-go/repository"
 )
 
@@ -39,14 +38,8 @@ func (co *UserController) UpdateAUser(c *gin.Context) {
 }
 
 func (co *UserController) GetUserGoals(c *gin.Context) {
-	// TODO takahashikazuaki not yet implemented
-	user := model.User{Name: "Kazuaki Takahashi"}
-	goals := []model.Goal{
-		{
-			Title:       "メンバーと毎週定例を実施する",
-			Description: "その日やっていたこと・今後やっていこうとしていること・課題などを共有し、解決に向けて前進させる。",
-		},
-	}
+	user, _ := co.UR.GetAUser(c.Param("id"))
+	goals, _ := co.GR.GetGoalsOfAUser(string(user.ID))
 	c.JSON(200, gin.H{
 		"message": "DEBUG: UpdateAUser has been called!",
 		"user":    user,
