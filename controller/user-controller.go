@@ -41,7 +41,7 @@ func (co *UserController) GetUserGoals(c *gin.Context) {
 	user, _ := co.UR.GetAUser(c.Param("id"))
 	goals, _ := co.GR.GetGoalsOfAUser(string(user.ID))
 	c.JSON(200, gin.H{
-		"message": "DEBUG: UpdateAUser has been called!",
+		"message": "DEBUG: GetUserGoals has been called!",
 		"user":    user,
 		"goals":   goals,
 	})
