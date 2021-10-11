@@ -19,12 +19,9 @@ func (r *GoalRepository) GetAGoal(id string) (model.Goal, error) {
 }
 
 func (r *GoalRepository) GetGoalsOfAUser(userId string) ([]model.Goal, error) {
-	// TODO takahashikazuaki get goals from DB
-	goals := []model.Goal{
-		{
-			Title:       "メンバーと毎週定例を実施する",
-			Description: "その日やっていたこと・今後やっていこうとしていること・課題などを共有し、解決に向けて前進させる。",
-		},
+	var goals []model.Goal
+	if err := r.DB.Where("UserID = ?", userId).Find(goals).Error; err != nil {
+		errors.Is(err, gorm.ErrRecordNotFound)
 	}
 	return goals, nil
 }
