@@ -20,7 +20,7 @@ func (r *GoalRepository) GetAGoal(id string) (model.Goal, error) {
 
 func (r *GoalRepository) GetGoalsOfAUser(userId string) ([]model.Goal, error) {
 	var goals []model.Goal
-	if err := r.DB.Where("UserID = ?", userId).Find(goals).Error; err != nil {
+	if err := r.DB.Where("user_id = ?", userId).Find(goals).Error; err != nil {
 		errors.Is(err, gorm.ErrRecordNotFound)
 	}
 	return goals, nil
