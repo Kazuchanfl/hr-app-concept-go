@@ -2,17 +2,29 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"hr-app-go/model"
 	"hr-app-go/repository"
 )
 
 type ActivityController struct {
-	R *repository.ActivityRepository
+	R  *repository.ActivityRepository
+	UR *repository.UserRepository
 }
 
 func (co *ActivityController) CreateAnActivity(c *gin.Context) {
-	// TODO takahashikazuaki create an activity instance and pass it to repository
-	_ = co.R.CreateAnActivity()
+	title := c.PostForm("title")
+	description := c.PostForm("description")
+	user, _ := co.UR.GetAUser(c.Param("id"))
+
+	activity := model.Activity{
+		Title:       title,
+		Description: description,
+		UserID:      user.ID,
+	}
+	_ = co.R.CreateAnActivity(activity)
+
 	c.JSON(200, gin.H{
-		"message": "DEBUG: CreateAnActivity has been called!",
+		"message":  "DEBUG: CreateAnActivity has been called!",
+		"activity": activity,
 	})
 }
