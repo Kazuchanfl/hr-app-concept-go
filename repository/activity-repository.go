@@ -9,7 +9,7 @@ type ActivityRepository struct {
 	DB *gorm.DB
 }
 
-func (r *ActivityRepository) CreateAnActivity(activity *model.Activity) error {
+func (r *ActivityRepository) CreateAnActivity(activity model.Activity) error {
 	result := r.DB.Create(&activity)
 	return result.Error
 }
