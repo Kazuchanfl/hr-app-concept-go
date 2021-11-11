@@ -28,3 +28,7 @@ func (co *ActivityController) CreateAnActivity(c *gin.Context) {
 		"activity": activity,
 	})
 }
+
+func (co *ActivityController) GetActivitiesOfAUser(c *gin.Context) {
+
+}
